@@ -1,12 +1,12 @@
 import Header from "./pages/Header";
 import "./dist/css/styles.css";
-import Router from "./Routes/Router";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
       <Header />
-      <Router />
+      <Home/>
     </>
   );
 }
