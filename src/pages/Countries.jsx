@@ -1,17 +1,19 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback , useEffect} from "react";
 import "../dist/css/countries.css";
 import { useFetchCountries } from "../hooks/useFetchCountry";
 import Card from "../components/Card";
 import Pagination from "./Pagination";
 import LoadingSpinner from "../components/LoadingSpinner";
+import CountryDetail from "./CountryDetail";
 
-const Countries = ({ searchedCountry, region }) => {
+const Countries = ({ searchedCountry, sort }) => {
   const {
     fetchedData: countriesList,
     loading,
-    error,
+    error
   } = useFetchCountries();
-
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [pageInput, setPageInput] = useState(1);
   const [recordsPerPage] = useState(25);
@@ -27,11 +29,30 @@ const Countries = ({ searchedCountry, region }) => {
     }
     );
     currentRecords = filtredByName.slice(indexOfFirstRecord, indexOfLastRecord);
+
     nPages = Math.ceil(filtredByName.length / recordsPerPage);
+
+    if(sort === "ASC") {
+      currentRecords = currentRecords.slice().sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
+    } else if(sort === "DESC") {
+      currentRecords = currentRecords.slice().sort((a, b) => {
+        if (a.name > b.name) return -1;
+        if (a.name < b.name) return 1;
+        return 0;
+      });
+    }
 
     renderCountries = currentRecords.map((country) => {
       return (
         <Card
+          onClick={(country) => {
+            setSelectedCountry(country);
+            setOpenModal(true);
+          }}
           key={country.name}
           country={country}
         />
@@ -79,13 +100,13 @@ const Countries = ({ searchedCountry, region }) => {
   const spinner = loading ? <LoadingSpinner /> : "";
 
   return (
-    <>
+    <div>
       {error && <div>{error}</div>}
-
       {spinner}
       {countriesList && !loading && (
         <div className="countriesContainer">{renderCountries}</div>
       )}
+      <CountryDetail country={selectedCountry} open={openModal} onClose={() => setOpenModal(false)} />
       <Pagination
         nextPage={nextPage}
         prevPage={prevPage}
@@ -95,7 +116,7 @@ const Countries = ({ searchedCountry, region }) => {
         handlePageInput={handlePageInput}
         pageInput={pageInput}
       />
-    </>
+    </div>
   );
 };
 

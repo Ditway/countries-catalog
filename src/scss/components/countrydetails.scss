@@ -4,48 +4,25 @@
 .contryDetail {
   @extend %container;
   padding: {
-    top: 50px;
+    top: 30px;
     bottom: 20px;
-  }
-
-  .detailPageBtn {
-    @include btnStyle(var(--elem));
-    padding: 7px 30px;
-    font-weight: 600;
-    color: var(--cololrText);
-
-    &:hover {
-      background-color: var(--activeHover);
-    }
-
-    i {
-      margin-right: 5px;
-    }
   }
 }
 
 .country {
   display: flex;
-  gap: calc(35px + 5vw);
-  padding-top: 50px;
-
+  gap: calc(35px + 2vw);
   .flagWrapper {
-    width: 45%;
+    width: 40%;
     img {
       width: 100%;
       object-fit: contain;
       object-position: center;
     }
-
-    @include breakpoint(md) {
-      width: 100%;
-    }
   }
 
   .countryInfo {
     flex: 1;
-    padding-top: 30px;
-
     p {
       @extend %countryData;
       & span {
@@ -53,45 +30,12 @@
       }
     }
   }
-
-  @include breakpoint(md) {
-    flex-direction: column;
-    gap: 0px;
-  }
 }
 
 .descCountry {
   padding: 20px 0px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   gap: 40px;
-
-  @include breakpoint(sm) {
-    flex-direction: column;
-  }
-}
-
-.borderCountries {
-  display: flex;
-  gap: 10px;
-
-  & span {
-    font-weight: 600;
-  }
-
-  & .countriesList {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 7px;
-
-    & a {
-      text-align: center;
-      font-weight: 300;
-    }
-  }
-
-  @include breakpoint(cus) {
-    flex-direction: column;
-  }
 }

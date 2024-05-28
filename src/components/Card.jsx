@@ -1,17 +1,15 @@
 import React from "react";
 import "../dist/css/countries.css";
-import { Link } from "react-router-dom";
 
-const Card = ({country}) => {
+const Card = ({country, onClick}) => {
   const {name, flags, cca2, cca3, nativeName, altSpelling, idd} = country;
   return (
-    <Link to={`/country/${name.replace(/\s/g, "%20")}`} className="card">
-      <div>
+    <div className="card">
         <div className="countryImgWrapper">
           <img src={flags.png} alt={`${name} flag`} />
         </div>
         <div className="cardBody">
-          <span className="title">{name}</span>
+          <span onClick={() => onClick(country)}  className="title">{name}</span>
           <p>
           2 character Country Code : <span>{cca2}</span>
           </p>
@@ -27,10 +25,8 @@ const Card = ({country}) => {
           <p>
           Country Calling Code : <span>{idd}</span>
           </p>
-
         </div>
-      </div>
-    </Link>
+    </div>
   );
 };
 

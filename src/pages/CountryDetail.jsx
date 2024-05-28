@@ -1,62 +1,15 @@
 import React from "react";
 import "../dist/css/countrydetails.css";
-import LoadingSpinner from "../components/LoadingSpinner";
-import { useFetchCountry } from "../hooks/useFetchCountry";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
-const CountryDetail = () => {
-  const { countryName } = useParams();
+import Modal from "../components/Modal";
 
-  const {
-    fetchedData: country,
-    loading,
-    error,
-
-  } = useFetchCountry();
-
-  let languages;
-  let borderCountries;
-
-  if (country && !loading) {
-    languages = (
-      <span>
-        {country.languages
-          ?.map((language) => {
-            return language.name;
-          })
-          .join(", ")}
-      </span>
-    );
-
-    borderCountries = country.borders?.map((country) => {
-      return (
-        <Link
-          key={country}
-          to={`/country/${country}`}
-          className="detailPageBtn"
-        >
-          {country}
-        </Link>
-      );
-    });
-  }
-
-  const spinner = loading ? <LoadingSpinner /> : "";
-
+const CountryDetail = ({country, onClose, open}) => {
   return (
-    <>
-      {error && <div>{error}</div>}
-      {spinner}
-      {country && !loading && (
-        <div className="contryDetail">
-          <Link to="/" className="detailPageBtn">
-            <i className="fa-solid fa-arrow-left"></i> Back
-          </Link>
-
+    <Modal isOpen={open} onClose={onClose}>
+      <div className="contryDetail">
           <div className="country">
             <div className="flagWrapper">
-              <img src={country.flag} alt={`${country.name} flag`} />
+              <img src={country.flags?.png} alt={`${country.name} flag`} />
             </div>
 
             <div className="countryInfo">
@@ -67,41 +20,35 @@ const CountryDetail = () => {
                     Native Name : <span>{country.nativeName}</span>
                   </p>
                   <p>
+                    2 character Country Code : <span>{country.cca2}</span>
+                  </p>
+                  <p>
+                    3 character Country Code : <span>{country.cca3}</span>
+                  </p>
+                  <p>
+                    Alternative Country Name : <span>{country.altSpelling}</span>
+                  </p>
+                  <p>
+                    Country Calling Code : <span>{country.idd}</span>
+                  </p>
+                  <p>
                     Popultation : <span>{country.population}</span>
                   </p>
                   <p>
                     Region : <span>{country.region}</span>
                   </p>
                   <p>
-                    Sub Region : <span>{country.subregion}</span>
+                    Area : <span>{country.area} km²</span>
                   </p>
                   <p>
-                    Capital : <span>{country.capital}</span>
+                    Capital : <span>{country.capital && country.capital[0]}</span>
                   </p>
-                </div>
-                <div>
-                  <p>
-                    Top Level Domain : <span>{country.topLevelDomain[0]}</span>
-                  </p>
-
-                  <p>
-                    Currencies : <span>{country.currencies?.[0].name}</span>
-                  </p>
-                  <p>Languages : {languages}</p>
-                </div>
-              </div>
-
-              <div className="borderCountries">
-                <span>Border Countries: </span>
-                <div className="countriesList">
-                  {borderCountries ? borderCountries : "none"}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      )}
-    </>
+    </Modal>
   );
 };
 

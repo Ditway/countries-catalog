@@ -4,20 +4,20 @@ import Countries from "./Countries";
 
 const Home = () => {
   const [searchVal, setSearchVal] = useState("");
-  const [region, setRegion] = useState("");
+  const [sort, setSort] = useState("");
 
   const searchChange = (e) => {
     setSearchVal(e.target.value);
   };
 
-  const filterRegion = (e) => {
-    setRegion(e.target.value);
+  const onSort = (e) => {
+    setSort(e.target.value);
   };
 
   return (
     <main>
-      <Filter searchChange={searchChange} selectRegion={filterRegion} />
-      <Countries searchedCountry={searchVal} region={region} />
+      <Filter searchChange={searchChange} onSort={onSort} />
+      <Countries searchedCountry={searchVal} sort={sort} />
     </main>
   );
 };

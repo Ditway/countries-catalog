@@ -1,7 +1,7 @@
 import React from "react";
 import "../dist/css/filter.css";
 
-const Filter = ({ searchChange, selectRegion }) => {
+const Filter = ({ searchChange, onSort }) => {
   return (
     <div className="filter">
       <div className="inputWrapper">
@@ -14,22 +14,15 @@ const Filter = ({ searchChange, selectRegion }) => {
           <i className="fa-solid fa-magnifying-glass"></i>
         </span>
       </div>
-      <label htmlFor="regions"></label>
+      <label htmlFor="sort"></label>
       <select
-        id="regions"
-        name="regions"
-        onChange={selectRegion}
-        aria-label="Select region"
+        id="sort"
+        name="sort"
+        onChange={onSort}
       >
-        <option defaultValue disabled>
-          Filter by region
-        </option>
-        <option value="">All</option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
+        <option defaultValue value="">Defualt sort</option>
+        <option value="ASC">Asc</option>
+        <option value="DESC">Desc</option>
       </select>
     </div>
   );
