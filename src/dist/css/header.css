@@ -1,0 +1,43 @@
+header .headerWrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header .headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  background-color: var(--elem);
+  transition: 0.3s ease-in-out;
+}
+header .headerWrapper {
+  min-height: 70px;
+}
+header h1 {
+  font-size: 20px;
+  font-weight: 800;
+}
+header .toggleBtn {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+  color: var(--colorText);
+  padding: 10px 15px;
+}
+header .toggleBtn:hover {
+  background-color: var(--activeHover);
+}
+header .toggleBtn * {
+  margin: 0 8px;
+}/*# sourceMappingURL=header.css.map */

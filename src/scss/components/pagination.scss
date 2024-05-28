@@ -1,0 +1,43 @@
+@use "../globals/layout";
+@use "../utils/mixin" as *;
+
+.paginationBtns {
+  @extend %container;
+  padding: {
+    top: 15px;
+    bottom: 15px;
+  }
+  text-align: right;
+
+  & input {
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-family: "Nunito Sans", sans-serif;
+    background-color: var(--elem);
+    color: var(--textColor);
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+    margin: 0 5px;
+  }
+
+  & .btnPag {
+    @include btnStyle(var(--elem));
+    padding: 5px 8px;
+    margin: 2px;
+    color: var(--textColor);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%),
+      0 4px 6px -4px rgb(0 0 0 / 10%);
+    &:hover {
+      background-color: var(--activeHover);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+      background-color: none;
+    }
+  }
+}

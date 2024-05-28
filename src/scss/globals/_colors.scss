@@ -1,0 +1,24 @@
+:root {
+   --bgDark: hsl(207, 26%, 17%);
+   --bgLight: hsl(0, 0%, 98%);
+   --textLight: hsl(200, 15%, 8%);
+   --textDark: hsl(0, 0%, 100%);
+   --elemLight: hsl(0, 0%, 100%);
+   --elemDark: hsl(209, 23%, 22%);
+   --inputLight: hsl(0, 0%, 52%);
+    --activeDark: hsl(210, 35%, 39%);
+    --activeLight: hsl(201, 68%, 85%);
+
+   --background: var(--bgLight);
+   --colorText: var(--textLight);
+   --elem: var(--elemLight);
+   --activeHover: var(--activeLight);
+}
+
+
+.dark {
+    --background: var(--bgDark);
+    --colorText: var(--textDark);
+    --elem: var(--elemDark);
+    --activeHover: var(--activeDark);
+}

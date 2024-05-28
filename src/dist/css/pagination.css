@@ -1,0 +1,47 @@
+.paginationBtns {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.paginationBtns {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: right;
+}
+.paginationBtns input {
+  width: 40px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--elem);
+  color: var(--textColor);
+  font-size: 12px;
+  text-align: center;
+  outline: none;
+  margin: 0 5px;
+}
+.paginationBtns .btnPag {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--elem);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+  padding: 5px 8px;
+  margin: 2px;
+  color: var(--textColor);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+.paginationBtns .btnPag:hover {
+  background-color: var(--activeHover);
+}
+.paginationBtns .btnPag:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background-color: none;
+}/*# sourceMappingURL=pagination.css.map */

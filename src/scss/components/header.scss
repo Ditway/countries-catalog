@@ -1,0 +1,33 @@
+@use "../utils/mixin" as *;
+@use "../globals/layout";
+
+header {
+  background-color: var(--elem);
+  transition: 0.3s ease-in-out;
+
+  .headerWrapper {
+    @extend %container;
+    min-height: 70px;
+    @extend %flex;
+  }
+
+  h1 {
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  .toggleBtn {
+    @include btnStyle(transparent);
+    font-weight: 600;
+    color: var(--colorText);
+    padding: 10px 15px;
+
+    &:hover {
+      background-color: var(--activeHover);
+    }
+
+    & * {
+      margin: 0 8px;
+    }
+  }
+}

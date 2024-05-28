@@ -1,0 +1,23 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  
+a {
+  text-decoration: none;
+}
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--background);
+    color: var(--colorText);
+    transition: 0.3s ease-in-out;
+  }

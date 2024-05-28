@@ -1,0 +1,53 @@
+@use "../globals/layout";
+
+.countriesContainer {
+  @extend %container;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: {
+    top: 25px;
+    bottom: 25px;
+  }
+}
+
+.card {
+  background-color: var(--elem);
+  // box-shadow: rgb(0 0 0 / 10%) 0px 1px 5px 1px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0/0.1), 0 4px 6px -4px rgb(0 0 0/0.1);
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--colorText);
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+.countryImgWrapper img {
+  // width:  275px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.cardBody {
+  padding: 20px;
+
+  .title {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  p {
+    @extend %countryData;
+    & span {
+      @extend %countryDataVal;
+    }
+  }
+}

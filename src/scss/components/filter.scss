@@ -1,0 +1,65 @@
+@use "../globals/layout";
+@use "../utils/mixin" as *;
+
+.filter {
+  @extend %container;
+  @extend %flex;
+  padding: {
+    top: 40px;
+    bottom: 15px;
+  }
+
+  .inputWrapper {
+    @extend %flex;
+    position: relative;
+    width: 330px;
+
+    @include breakpoint(sm) {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+      min-height: 40px;
+      padding-left: 55px;
+      padding-right: 10px;
+      outline: none;
+      border: none;
+      background-color: var(--elem);
+      color: var(--colorText);
+      font-family: "Nunito Sans", sans-serif;
+      transition: 0.3s ease-in-out;
+    }
+
+    span {
+      position: absolute;
+      left: 20px;
+      font-size: 12px;
+      i {
+        vertical-align: bottom;
+      }
+    }
+  }
+
+  select {
+    width: 200px;
+    height: 40px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-family: "Nunito Sans", sans-serif;
+    background-color: var(--elem);
+    color: var(--colorText);
+    transition: 0.3s ease-in-out;
+  }
+
+  @include breakpoint(sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+::placeholder {
+  color: var(--colorText);
+}

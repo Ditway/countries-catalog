@@ -1,0 +1,23 @@
+@mixin btnStyle($bgColor) {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: $bgColor;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+}
+
+$breakpoints-up: (
+  "cus": "425px",
+  "xs": "480px",
+  "sm": "576px",
+  "md": "768px",
+);
+
+@mixin breakpoint($size) {
+  @media (max-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}

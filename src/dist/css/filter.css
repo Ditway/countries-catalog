@@ -1,0 +1,76 @@
+.filter {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.filter, .filter .inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter {
+  padding-top: 40px;
+  padding-bottom: 15px;
+}
+.filter .inputWrapper {
+  position: relative;
+  width: 330px;
+}
+@media (max-width: 576px) {
+  .filter .inputWrapper {
+    width: 100%;
+  }
+}
+.filter .inputWrapper input {
+  width: 100%;
+  min-height: 40px;
+  padding-left: 55px;
+  padding-right: 10px;
+  outline: none;
+  border: none;
+  background-color: var(--elem);
+  color: var(--colorText);
+  font-family: "Nunito Sans", sans-serif;
+  transition: 0.3s ease-in-out;
+}
+.filter .inputWrapper span {
+  position: absolute;
+  left: 20px;
+  font-size: 12px;
+}
+.filter .inputWrapper span i {
+  vertical-align: bottom;
+}
+.filter select {
+  width: 200px;
+  height: 40px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--elem);
+  color: var(--colorText);
+  transition: 0.3s ease-in-out;
+}
+@media (max-width: 576px) {
+  .filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+::-moz-placeholder {
+  color: var(--colorText);
+}
+
+:-ms-input-placeholder {
+  color: var(--colorText);
+}
+
+::placeholder {
+  color: var(--colorText);
+}/*# sourceMappingURL=filter.css.map */
