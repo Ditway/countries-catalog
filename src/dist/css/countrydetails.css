@@ -32,9 +32,20 @@
   object-fit: contain;
   object-position: center;
 }
+@media (max-width: 576px) {
+  .country .flagWrapper {
+    width: 100%;
+  }
+}
 .country .countryInfo {
   flex: 1;
 }
+@media (max-width: 576px) {
+  .country {
+    flex-direction: column;
+  }
+}
+
 .descCountry {
   padding: 20px 0px;
   display: flex;

@@ -23,9 +23,7 @@ const useFetchCountries = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
   
-
   return { fetchedData, loading, error };
 };
 

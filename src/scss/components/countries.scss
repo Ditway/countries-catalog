@@ -1,4 +1,5 @@
 @use "../globals/layout";
+@use "../utils/mixin" as *;
 
 .countriesContainer {
   @extend %container;
@@ -20,6 +21,10 @@
   color: var(--colorText);
   transition: 0.3s ease-in-out;
 
+  @include breakpoint(sm) {
+    flex-direction: column;
+  }
+
   &:hover {
     transform: scale(1.04);
   }
@@ -39,6 +44,10 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+
+  @include breakpoint(sm) {
+    width: 100%;
+  }
 }
 
 .cardBody {

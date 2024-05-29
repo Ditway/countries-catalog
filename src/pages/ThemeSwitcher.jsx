@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const ThemeSwitcher = () => {
   const getUserTheme = () => {
-    const theme = localStorage.getItem("theme") || "light";
+    const theme = localStorage.getItem("theme") || "dark";
     return theme;
   };
   const [theme, setTheme] = useState(getUserTheme());

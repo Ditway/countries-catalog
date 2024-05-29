@@ -7,7 +7,7 @@ const Filter = ({ searchChange, onSort }) => {
       <div className="inputWrapper">
         <input
           type="search"
-          placeholder="Search for a country..."
+          placeholder="Search for a country"
           onChange={searchChange}
         />
         <span>

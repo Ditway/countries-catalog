@@ -1,4 +1,4 @@
-import React, { useState, useCallback , useEffect} from "react";
+import React, { useState, useCallback } from "react";
 import "../dist/css/countries.css";
 import { useFetchCountries } from "../hooks/useFetchCountry";
 import Card from "../components/Card";

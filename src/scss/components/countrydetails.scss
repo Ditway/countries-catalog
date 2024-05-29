@@ -19,6 +19,9 @@
       object-fit: contain;
       object-position: center;
     }
+    @include breakpoint(sm) {
+      width: 100%;;
+    }
   }
 
   .countryInfo {
@@ -29,6 +32,9 @@
         @extend %countryDataVal;
       }
     }
+  }
+  @include breakpoint(sm) {
+    flex-direction: column;
   }
 }
 
